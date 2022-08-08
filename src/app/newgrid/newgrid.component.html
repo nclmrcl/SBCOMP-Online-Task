@@ -1,0 +1,26 @@
+<div class=main-container>
+  <p>This is an Angular application that displays a table of sample data using Ignite UI - Grid.</p>
+
+  <div class="display-density-actions">
+    <igx-buttongroup>
+        <button igxButton [disabled]="displayDensity === compact" (click)="setDensity('compact')">Compact</button>
+        <button igxButton [disabled]="displayDensity === cosy" (click)="setDensity('cosy')">Cosy</button>
+        <button igxButton [disabled]="displayDensity === comfortable" (click)="setDensity('comfortable')">Comfortable</button>
+    </igx-buttongroup>
+  </div>
+
+  <div class="grid-container">
+    <igx-grid #grid1 [data]="localData" [autoGenerate]="false" (columnInit)="onColumnInit($event)" [rowSelection]="'multiple'" [rowEditable]="true" [primaryKey]="EmployeeID"  [allowFiltering]="true" [displayDensity]="displayDensity"  filterMode="excelStyleFilter">
+      <igx-paginator></igx-paginator>
+
+      <igx-column header= "Employee ID" field = "EmployeeID"></igx-column>
+      <igx-column header = "First Name" field = "FirstName" dataType="string" [hasSummary]="true" [sortable]="true" [editable]="true"></igx-column>
+      <igx-column header = "Last Name" field = "LastName" dataType="string" [hasSummary]="true" [sortable]="true" [editable]="true"></igx-column>
+      <igx-column header = "Country" field = "Country"  [sortable]="true"></igx-column>
+      <igx-column header = "Age" field = "Age" dataType="number"  [sortable]="true"></igx-column>
+      <igx-column header = "Registered Date" field = "RegistererDate" [dataType]="date"  [sortable]="true"></igx-column>
+      <igx-column header = "Is Active" field = "IsActive"  [sortable]="true"></igx-column>
+    </igx-grid>
+    
+  </div>
+</div>
